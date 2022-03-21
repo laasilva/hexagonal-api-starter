@@ -31,18 +31,22 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <finalName>${application.name.value}</finalName>
                     <classifier>${repackage.classifier}</classifier>
+                    <mainClass>com.hexa.starter.application.HexaApiStarterApplication</mainClass>
                     <image>
                         <builder>paketobuildpacks/builder:tiny</builder>
                         <env>
-                            <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+                            <BP_NATIVE_IMAGE>false</BP_NATIVE_IMAGE>
                         </env>
                     </image>
                 </configuration>

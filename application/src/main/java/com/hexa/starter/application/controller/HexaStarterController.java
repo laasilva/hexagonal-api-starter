@@ -1,4 +1,4 @@
-package com.hexa.starter.hexaapistarter.controller;
+package com.hexa.starter.application.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

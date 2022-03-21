@@ -1,4 +1,4 @@
-package com.hexa.starter.hexaapistarter;
+package com.hexa.starter.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

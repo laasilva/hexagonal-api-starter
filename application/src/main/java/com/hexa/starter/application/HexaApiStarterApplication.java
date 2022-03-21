@@ -1,4 +1,4 @@
-package com.hexa.starter.hexaapistarter;
+package com.hexa.starter.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
