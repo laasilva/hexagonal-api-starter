@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  hexadb:
+    image: mysql
+    container_name: hexa_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: "hexa_db"
+      MYSQL_ROOT_PASSWORD: "speaknow"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-hexa-volume:/var/lib/hexadb
+      - ./scripts/v1.sql:/docker-entrypoint-initdb.d/v1.sql
+volumes:
+  mysql-hexa-volume:
