@@ -38,11 +38,11 @@ After those two simple steps, you'll only have to setup your Run/Debug Configura
 
 ### Using Your Terminal
 
-If you're like me, and sometimes you like to go oldschool and use more terminal commands to look :sunglasses:*cool*:sunglasses: like the true Elliot Alderson you are, you can run the application by (making sure you have maven installed, of course) and using the following commands and you'll be all set:
+If you're like me, and sometimes you like to go oldschool and use more terminal commands to look :sunglasses:*cool*:sunglasses: like the true Elliot Alderson you are, you can run the application by (making sure you have maven installed, of course, and) using the following commands and you'll be all set:
 ```sh
-$ mvn clean install
-$ cd application
-$ mvn spring-boot:run
+mvn clean install
+cd application
+mvn spring-boot:run
 ```
 
 ## Conclusion
