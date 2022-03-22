@@ -1,7 +1,7 @@
-DROP TABLE user;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
-     id int not null auto_increment,
-     username varchar(255),
-     password varchar(255)
+     id INT NOT NULL AUTO_INCREMENT,
+     username VARCHAR(255),
+     password VARCHAR(255)
 );
