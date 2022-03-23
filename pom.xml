@@ -31,6 +31,9 @@
     <slf4j.version>1.7.26</slf4j.version>
     <mockito.version>4.0.0</mockito.version>
     <start-class>com.hexa.starter.datasource.HexaApiStarterApplication</start-class>
+    <!-- sonar setup -->
+    <sonar.organization>laasilva</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
 
 <modules>
@@ -75,22 +78,39 @@
                     </execution>
                 </executions>
             </plugin>
-<!--            <plugin>-->
-<!--                <artifactId>maven-release-plugin</artifactId>-->
-<!--                <version>2.5.3</version>-->
-<!--                <configuration>-->
-<!--                    <localCheckout>true</localCheckout>-->
-<!--                    <pushChanges>false</pushChanges>-->
-<!--                    <mavenExecutorId>forked-path</mavenExecutorId>-->
-<!--                </configuration>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>org.apache.maven.scm</groupId>-->
-<!--                        <artifactId>maven-scm-provider-gitexe</artifactId>-->
-<!--                        <version>2.0.0-M1</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.6</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.7.0.1746</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.2.0</version>
