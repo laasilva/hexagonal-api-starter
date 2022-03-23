@@ -18,7 +18,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Compile with Maven
-        run: mvn --b compile
+        run: mvn -f app-demo/pom.xml clean install dependency:copy-dependencies
   test:
     runs-on: ubuntu-latest
     name: Tests
