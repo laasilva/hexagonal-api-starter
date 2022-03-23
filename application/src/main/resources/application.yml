@@ -16,6 +16,9 @@ spring:
       maximum-pool-size: 5
       connection-timeout: 5000
       pool-name: pool-starter
+      jdbc-url: jdbc:mysql://localhost:3306/hexa_db
+      username: root
+      password: speaknow
 
   jpa:
     show-sql: false

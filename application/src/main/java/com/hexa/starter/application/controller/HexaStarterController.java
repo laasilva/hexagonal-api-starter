@@ -1,11 +1,13 @@
 package com.hexa.starter.application.controller;
 
+import com.hexa.starter.application.dto.request.UserRequest;
+import com.hexa.starter.application.dto.response.UserResponse;
+import com.hexa.starter.application.mapper.UserDtoMapper;
+import com.hexa.starter.core.port.command.SaveUserCommand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/starter")
@@ -13,9 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class HexaStarterController {
 
-    @GetMapping("/test")
-    public ResponseEntity<String> starter() {
-        log.info("Sending request for test GET endpoint...");
-        return ResponseEntity.ok("Working!");
+    private final SaveUserCommand saveUserCommand;
+    private final UserDtoMapper mapper;
+
+    @PostMapping("/user")
+    public ResponseEntity<UserResponse> saveUser(@RequestBody
+                                                 UserRequest request) {
+        log.info("Sending request for test POST User endpoint...");
+
+        final var user = saveUserCommand.save(mapper.toModel(request));
+        return ResponseEntity.ok(mapper.toDto(user));
     }
 }
