@@ -8,6 +8,6 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 public class ErrorMessage implements Serializable {
-    private String code;
+    private String status;
     private String message;
 }

@@ -8,9 +8,6 @@ import com.hexa.starter.core.port.command.SaveUserCommand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 @RequiredArgsConstructor
 @Slf4j
 public class SaveUser implements SaveUserCommand {
@@ -19,14 +16,8 @@ public class SaveUser implements SaveUserCommand {
     private final PasswordUtil passwordUtil = new PasswordUtil();
 
     @Override
-    public User save(User user) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        try {
-            user.setPassword(passwordUtil.encrypt(user.getPassword()));
-            return persist.save(user);
-        } catch (BusinessException e) {
-            log.error("Could not encrypt password, check stacktrace.");
-            e.printStackTrace();
-        }
-        return null;
+    public User save(User user) {
+        user.setPassword(passwordUtil.encrypt(user.getPassword()));
+        return persist.save(user);
     }
 }
