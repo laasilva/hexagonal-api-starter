@@ -31,7 +31,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Run unit tests
-        run: mvn -B test
+        run: mvn test
   analysis:
     name: Build
     runs-on: ubuntu-latest
