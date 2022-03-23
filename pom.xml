@@ -34,6 +34,16 @@
     <!-- sonar setup -->
     <sonar.organization>laasilva</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.exclusions>
+        **/*Application.java,
+        **/*Configuration.java,
+        **/configuration/**,
+        **/dto/**,
+        **/model/**,
+        **/entity/**,
+        **/exception/**,
+        **/mapper/**
+    </sonar.exclusions>
 </properties>
 
 <modules>
