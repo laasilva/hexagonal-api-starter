@@ -7,4 +7,8 @@ public class BusinessException extends RuntimeException {
         super();
         this.errorMessage = new ErrorMessage(code, message);
     }
+
+    public ErrorMessage getErrorMessage() {
+        return errorMessage;
+    }
 }

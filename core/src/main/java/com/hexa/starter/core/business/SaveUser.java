@@ -19,11 +19,11 @@ public class SaveUser implements SaveUserCommand {
     private final PasswordUtil passwordUtil = new PasswordUtil();
 
     @Override
-    public User save(User user) {
+    public User save(User user) throws NoSuchAlgorithmException, InvalidKeySpecException {
         try {
             user.setPassword(passwordUtil.encrypt(user.getPassword()));
             return persist.save(user);
-        } catch (BusinessException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+        } catch (BusinessException e) {
             log.error("Could not encrypt password, check stacktrace.");
             e.printStackTrace();
         }

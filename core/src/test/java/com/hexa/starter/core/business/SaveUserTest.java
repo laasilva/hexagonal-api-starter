@@ -8,7 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.exceptions.misusing.InvalidUseOfMatchersException;
 
-public class SaveUserTest {
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+class SaveUserTest {
     private final PersistUserAdapter persistUserAdapter = Mockito.mock(PersistUserAdapter.class);
     private final SaveUser saveUser = Mockito.mock(SaveUser.class);
 
@@ -16,7 +19,7 @@ public class SaveUserTest {
     private static final String PASSWORD = "testPassword";
 
     @Test
-    public void saveTestSuccess() {
+    void saveTestSuccess() throws NoSuchAlgorithmException, InvalidKeySpecException {
         User user = createMockModel();
         Mockito.when(saveUser.save(Mockito.any())).thenReturn(user);
 
@@ -24,7 +27,7 @@ public class SaveUserTest {
     }
 
     @Test
-    public void saveTestException() {
+    void saveTestException() throws NoSuchAlgorithmException, InvalidKeySpecException {
         Mockito.when(saveUser.save(Mockito.any()))
                 .thenThrow(new BusinessException(Mockito.anyString(), Mockito.anyString()));
 

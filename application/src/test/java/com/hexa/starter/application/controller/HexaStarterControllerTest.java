@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = HexaStarterController.class)
-public class HexaStarterControllerTest {
+class HexaStarterControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

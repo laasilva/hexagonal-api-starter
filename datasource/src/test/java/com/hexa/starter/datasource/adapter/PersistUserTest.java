@@ -1,6 +1,5 @@
 package com.hexa.starter.datasource.adapter;
 
-import com.hexa.starter.core.business.utils.PasswordUtil;
 import com.hexa.starter.core.model.User;
 import com.hexa.starter.datasource.entity.UserEntity;
 import com.hexa.starter.datasource.mapper.UserEntityMapper;
@@ -17,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 @RunWith(SpringRunner.class)
-public class PersistUserTest {
+ class PersistUserTest {
 
     private final UserRepository repository = Mockito.mock(UserRepository.class);
     private final UserEntityMapper mapper = Mockito.mock(UserEntityMapper.class);
@@ -34,7 +33,7 @@ public class PersistUserTest {
     }
 
     @Test
-    public void saveTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
         User model = createMockModel();
         UserEntity entity = createMockEntity();
 
