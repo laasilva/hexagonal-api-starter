@@ -11,6 +11,7 @@ services:
       - "3306:3306"
     volumes:
       - mysql-hexa-volume:/var/lib/hexadb
-      - ./scripts/v1.sql:/docker-entrypoint-initdb.d/v1.sql
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./custom.cnf:/etc/mysql/conf.d/custom.cnf
 volumes:
   mysql-hexa-volume:
