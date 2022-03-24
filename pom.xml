@@ -47,18 +47,18 @@
         **/mapper/**
     </sonar.exclusions>
     <sonar.jdbc.dialect>mysql</sonar.jdbc.dialect>
-    <sonar.projectKey>laasilva_hexagonal-api-starter</sonar.projectKey>
+<!--    <sonar.projectKey>laasilva_hexagonal-api-starter</sonar.projectKey>-->
     <sonar.projectName>${application.name.value}</sonar.projectName>
     <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
     <sonar.language>java</sonar.language>
     <sonar.binaries>build/classes</sonar.binaries>
-    <sonar.tests>junit</sonar.tests>
+    <sonar.tests>src/test</sonar.tests>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
     <sonar.junit.reportsPath>${project.build.directory}/surefire-reports/</sonar.junit.reportsPath>
     <sonar.jacoco.reportPath>${basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
     <jacoco.reports.outputDirectory>${basedir}/../target/site/jacoco</jacoco.reports.outputDirectory>
-    <sonar.sources>src</sonar.sources>
+    <sonar.sources>src/test</sonar.sources>
 </properties>
 
 <modules>
