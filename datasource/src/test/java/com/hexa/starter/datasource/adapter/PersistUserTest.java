@@ -1,20 +1,16 @@
 package com.hexa.starter.datasource.adapter;
 
-import com.hexa.starter.core.business.utils.PasswordUtil;
 import com.hexa.starter.core.model.User;
 import com.hexa.starter.datasource.entity.UserEntity;
 import com.hexa.starter.datasource.mapper.UserEntityMapper;
 import com.hexa.starter.datasource.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 @RunWith(SpringRunner.class)
 public class PersistUserTest {
@@ -34,7 +30,7 @@ public class PersistUserTest {
     }
 
     @Test
-    public void saveTest() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public void saveTest200() {
         User model = createMockModel();
         UserEntity entity = createMockEntity();
 
@@ -48,7 +44,7 @@ public class PersistUserTest {
         return User.builder().username(USERNAME).password(PASSWORD).build();
     }
 
-    private UserEntity createMockEntity() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    private UserEntity createMockEntity() {
         UserEntity entity = new UserEntity();
 
         entity.setId(ID);

@@ -1,6 +1,8 @@
 package com.hexa.starter.core.business.utils;
 
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -10,9 +12,11 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 
 @NoArgsConstructor
+@Slf4j
 public class PasswordUtil {
 
     public String encrypt(String decrypted) throws NoSuchAlgorithmException, InvalidKeySpecException {
+
         SecureRandom random = new SecureRandom();
 
         byte[] salt = new byte[16];
@@ -21,7 +25,9 @@ public class PasswordUtil {
         KeySpec spec = new PBEKeySpec(decrypted.toCharArray(), salt, 65536, 128);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 
-        byte[] hash = factory.generateSecret(spec).getEncoded();
+        byte[] hash = new byte[0];
+
+        hash = factory.generateSecret(spec).getEncoded();
 
         return new String(hash);
     }

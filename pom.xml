@@ -30,10 +30,31 @@
     <mapstruct.version>1.4.2.Final</mapstruct.version>
     <slf4j.version>1.7.26</slf4j.version>
     <mockito.version>4.0.0</mockito.version>
+    <jacoco.version>0.8.7</jacoco.version>
     <start-class>com.hexa.starter.datasource.HexaApiStarterApplication</start-class>
     <!-- sonar setup -->
     <sonar.organization>laasilva</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.exclusions>
+        **/*Application.java,
+        **/*Configuration.java,
+        **/configuration/**,
+        **/dto/**,
+        **/model/**,
+        **/entity/**,
+        **/exception/**,
+        **/mapper/**,
+        **/**Test**/**
+    </sonar.exclusions>
+    <sonar.jdbc.dialect>mysql</sonar.jdbc.dialect>
+    <sonar.projectName>${application.name.value}</sonar.projectName>
+    <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
+    <sonar.language>java</sonar.language>
+    <sonar.binaries>build/classes</sonar.binaries>
+    <sonar.sources>src</sonar.sources>
+    <sonar.tests>src/test</sonar.tests>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 </properties>
 
 <modules>
@@ -42,12 +63,24 @@
     <module>datasource</module>
 </modules>
 
+<pluginRepositories>
+    <pluginRepository>
+        <id>maven2</id>
+        <url>https://repo.maven.apache.org/maven2/</url>
+    </pluginRepository>
+</pluginRepositories>
+
 <build>
     <pluginManagement>
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M2</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <jacoco-agent.destfile>**/jacoco.exec</jacoco-agent.destfile>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -62,6 +95,9 @@
                             <goal>repackage</goal>
                             <goal>build-info</goal>
                         </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -79,9 +115,14 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -91,7 +132,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -167,6 +208,11 @@
 
     <plugins>
         <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco.version}</version>
+        </plugin>
+        <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
         </plugin>
         <plugin>
@@ -175,9 +221,6 @@
         <plugin>
             <artifactId>maven-deploy-plugin</artifactId>
         </plugin>
-<!--        <plugin>-->
-<!--            <artifactId>maven-release-plugin</artifactId>-->
-<!--        </plugin>-->
         <plugin>
             <artifactId>maven-source-plugin</artifactId>
         </plugin>
@@ -186,25 +229,5 @@
         </plugin>
     </plugins>
 </build>
-<!--<repositories>-->
-<!--    <repository>-->
-<!--        <id>spring-releases</id>-->
-<!--        <name>Spring Releases</name>-->
-<!--        <url>https://repo.spring.io/release</url>-->
-<!--        <snapshots>-->
-<!--            <enabled>false</enabled>-->
-<!--        </snapshots>-->
-<!--    </repository>-->
-<!--</repositories>-->
-<!--<pluginRepositories>-->
-<!--    <pluginRepository>-->
-<!--        <id>spring-releases</id>-->
-<!--        <name>Spring Releases</name>-->
-<!--        <url>https://repo.spring.io/release</url>-->
-<!--        <snapshots>-->
-<!--            <enabled>false</enabled>-->
-<!--        </snapshots>-->
-<!--    </pluginRepository>-->
-<!--</pluginRepositories>-->
 
 </project>
