@@ -30,6 +30,7 @@
     <mapstruct.version>1.4.2.Final</mapstruct.version>
     <slf4j.version>1.7.26</slf4j.version>
     <mockito.version>4.0.0</mockito.version>
+    <jacoco.version>0.8.7</jacoco.version>
     <start-class>com.hexa.starter.datasource.HexaApiStarterApplication</start-class>
     <!-- sonar setup -->
     <sonar.organization>laasilva</sonar.organization>
@@ -45,6 +46,19 @@
         **/exception/**,
         **/mapper/**
     </sonar.exclusions>
+    <sonar.jdbc.dialect>mysql</sonar.jdbc.dialect>
+    <sonar.projectKey>laasilva_hexagonal-api-starter</sonar.projectKey>
+    <sonar.projectName>${application.name.value}</sonar.projectName>
+    <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
+    <sonar.sources>**/src/**</sonar.sources>
+    <sonar.language>java</sonar.language>
+    <sonar.binaries>build/classes</sonar.binaries>
+    <sonar.tests>junit</sonar.tests>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.junit.reportsPath>/</sonar.junit.reportsPath>
+    <sonar.java.coveragePlugin>/</sonar.java.coveragePlugin>
+    <sonar.jacoco.reportPath>/</sonar.jacoco.reportPath>
+
 </properties>
 
 <modules>
@@ -52,6 +66,13 @@
     <module>core</module>
     <module>datasource</module>
 </modules>
+
+<pluginRepositories>
+    <pluginRepository>
+        <id>maven2</id>
+        <url>https://repo.maven.apache.org/maven2/</url>
+    </pluginRepository>
+</pluginRepositories>
 
 <build>
     <pluginManagement>
@@ -71,8 +92,10 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
-                            <goal>build-info</goal>
                         </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -92,7 +115,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
+                <version>${jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -103,6 +126,12 @@
                     <execution>
                         <id>report</id>
                         <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -177,6 +206,11 @@
     </pluginManagement>
 
     <plugins>
+        <plugin>
+            <artifactId>jacoco-maven-plugin</artifactId>
+
+            <version>${jacoco.version}</version>
+        </plugin>
         <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
         </plugin>
