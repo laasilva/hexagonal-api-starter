@@ -43,15 +43,14 @@
         **/model/**,
         **/entity/**,
         **/exception/**,
-        **/mapper/**,
-        **/*Test*/**
+        **/mapper/**
     </sonar.exclusions>
     <sonar.jdbc.dialect>mysql</sonar.jdbc.dialect>
     <sonar.projectName>${application.name.value}</sonar.projectName>
     <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
     <sonar.language>java</sonar.language>
     <sonar.binaries>build/classes</sonar.binaries>
-    <sonar.tests>src/test</sonar.tests>
+<!--    <sonar.tests>src/test</sonar.tests>-->
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
     <sonar.sources>src/test</sonar.sources>
