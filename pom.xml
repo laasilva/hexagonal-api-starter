@@ -50,7 +50,7 @@
     <sonar.projectKey>laasilva_hexagonal-api-starter</sonar.projectKey>
     <sonar.projectName>${application.name.value}</sonar.projectName>
     <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
-    <sonar.sources>src/**</sonar.sources>
+    <sonar.sources>src/main/**</sonar.sources>
     <sonar.language>java</sonar.language>
     <sonar.binaries>build/classes</sonar.binaries>
     <sonar.tests>junit</sonar.tests>
