@@ -51,7 +51,7 @@
     <sonar.language>java</sonar.language>
     <sonar.binaries>build/classes</sonar.binaries>
     <sonar.sources>src</sonar.sources>
-    <sonar.tests>test</sonar.tests>
+    <sonar.tests>src/test</sonar.tests>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 </properties>
