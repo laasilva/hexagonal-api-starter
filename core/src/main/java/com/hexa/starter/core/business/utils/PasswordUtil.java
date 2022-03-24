@@ -15,8 +15,7 @@ import java.security.spec.KeySpec;
 @Slf4j
 public class PasswordUtil {
 
-    @SneakyThrows
-    public String encrypt(String decrypted) {
+    public String encrypt(String decrypted) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         SecureRandom random = new SecureRandom();
 
