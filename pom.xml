@@ -50,15 +50,15 @@
     <sonar.projectKey>laasilva_hexagonal-api-starter</sonar.projectKey>
     <sonar.projectName>${application.name.value}</sonar.projectName>
     <sonar.projectVersion>0.0.1-SNAPSHOT</sonar.projectVersion>
-<!--    <sonar.sources>src/main/java, src/main/resources</sonar.sources>-->
     <sonar.language>java</sonar.language>
     <sonar.binaries>build/classes</sonar.binaries>
     <sonar.tests>junit</sonar.tests>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-    <sonar.junit.reportsPath>/</sonar.junit.reportsPath>
-    <sonar.java.coveragePlugin>/</sonar.java.coveragePlugin>
-    <sonar.jacoco.reportPath>/</sonar.jacoco.reportPath>
-
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+    <sonar.junit.reportsPath>${project.build.directory}/surefire-reports/</sonar.junit.reportsPath>
+    <sonar.jacoco.reportPath>${basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+    <jacoco.reports.outputDirectory>${basedir}/../target/site/jacoco</jacoco.reports.outputDirectory>
+    <sonar.sources>src</sonar.sources>
 </properties>
 
 <modules>
@@ -92,6 +92,7 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
+                            <goal>build-info</goal>
                         </goals>
                         <configuration>
                             <classifier>exec</classifier>
@@ -113,6 +114,11 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
@@ -125,13 +131,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>default-report</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -207,8 +207,8 @@
 
     <plugins>
         <plugin>
+            <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-
             <version>${jacoco.version}</version>
         </plugin>
         <plugin>
