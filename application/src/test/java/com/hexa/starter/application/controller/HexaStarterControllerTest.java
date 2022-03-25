@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = HexaStarterController.class)
-public class HexaStarterControllerTest {
+class HexaStarterControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -39,12 +39,12 @@ public class HexaStarterControllerTest {
     private static final String PASSWORD = "testPassword";
     
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
     }
     
     @Test
-    public void saveUserTest200() throws Exception {
+    void saveUserTest200() throws Exception {
         Mockito.when(mapper.toModel(Mockito.any())).thenReturn(createMockModel());
         Mockito.when(mapper.toDto(Mockito.any())).thenReturn(createMockResponse());
         Mockito.when(saveUserCommand.save(Mockito.any())).thenReturn(createMockModel());
