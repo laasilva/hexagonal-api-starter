@@ -2,6 +2,13 @@
 # Hexagonal Architecture Starter
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+<br />
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=coverage)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=bugs)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=laasilva_hexagonal-api-starter&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=laasilva_hexagonal-api-starter)
 
 ## Overview
 This is a reference project for setting up a new Hexagonal based Spring Boot Java project. This sample starter is used whenever I want to start a new project - simply clone it and replace it's properties and rename packages to match your application.
