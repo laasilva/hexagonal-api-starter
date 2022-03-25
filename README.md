@@ -51,7 +51,21 @@ mvn clean install
 cd application
 mvn spring-boot:run
 ```
+#### Dig deeper
 
+If you want to generate Test Coverage reports, use the following command:
+
+```sh
+mvn verify
+```
+After that, just check your target/site/jacoco directory and open the index.html in your favorite browser.
+
+---
+If you want to generate a site that sums up all of the maven repositories for the project, alongside the Coverage Reports, use following command:
+
+```sh
+mvn site
+```
 ## Conclusion
 This starter project was made for studies intent, :blue_heart:*lots of love*:blue_heart: and a tad of alcohol - hopefully will be used for a future project of mine, which will take a lot of energy out of my few working brain cells.
 
