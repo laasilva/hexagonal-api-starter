@@ -13,7 +13,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-public class PersistUserTest {
+class PersistUserTest {
 
     private final UserRepository repository = Mockito.mock(UserRepository.class);
     private final UserEntityMapper mapper = Mockito.mock(UserEntityMapper.class);
@@ -25,12 +25,12 @@ public class PersistUserTest {
     private static final String PASSWORD = "testPassword";
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void saveTest200() {
+    void saveTest200() {
         User model = createMockModel();
         UserEntity entity = createMockEntity();
 

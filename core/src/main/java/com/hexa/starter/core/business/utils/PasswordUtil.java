@@ -1,7 +1,6 @@
 package com.hexa.starter.core.business.utils;
 
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.SecretKeyFactory;
@@ -25,9 +24,7 @@ public class PasswordUtil {
         KeySpec spec = new PBEKeySpec(decrypted.toCharArray(), salt, 65536, 128);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 
-        byte[] hash = new byte[0];
-
-        hash = factory.generateSecret(spec).getEncoded();
+        byte[] hash = factory.generateSecret(spec).getEncoded();
 
         return new String(hash);
     }

@@ -12,8 +12,7 @@ import org.mockito.MockitoAnnotations;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class SaveUserTest {
-
+class SaveUserTest {
     private final PersistUserAdapter persistUserAdapter = Mockito.mock(PersistUserAdapter.class);
     private final PasswordUtil passwordUtil = Mockito.mock(PasswordUtil.class);
     private final SaveUser saveUser = new SaveUser(persistUserAdapter, passwordUtil);
@@ -27,7 +26,7 @@ public class SaveUserTest {
     }
 
     @Test
-    public void saveTest200() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    void saveTest200() throws NoSuchAlgorithmException, InvalidKeySpecException {
         User user = createMockModel();
 
         Mockito.when(passwordUtil.encrypt(Mockito.anyString())).thenReturn("");

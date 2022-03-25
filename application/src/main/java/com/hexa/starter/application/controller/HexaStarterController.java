@@ -3,7 +3,7 @@ package com.hexa.starter.application.controller;
 import com.hexa.starter.application.dto.request.UserRequest;
 import com.hexa.starter.application.dto.response.UserResponse;
 import com.hexa.starter.application.mapper.UserDtoMapper;
-import com.hexa.starter.core.exception.BusinessException;
+
 import com.hexa.starter.core.model.User;
 import com.hexa.starter.core.port.command.SaveUserCommand;
 import lombok.RequiredArgsConstructor;
