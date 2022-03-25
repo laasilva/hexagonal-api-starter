@@ -13,7 +13,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 class SaveUserTest {
-
     private final PersistUserAdapter persistUserAdapter = Mockito.mock(PersistUserAdapter.class);
     private final PasswordUtil passwordUtil = Mockito.mock(PasswordUtil.class);
     private final SaveUser saveUser = new SaveUser(persistUserAdapter, passwordUtil);
